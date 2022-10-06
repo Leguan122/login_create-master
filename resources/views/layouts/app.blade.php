@@ -10,8 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/dropdown_user.js') }}" defer></script>
+    <script src="{{ asset('js/send_message.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,7 +26,7 @@
 
 
 
-    <div id="app">
+    <div id="app" class="h-full">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm flex">
             <div class="flex justify-between w-full">
                 <a class="bg-cyan-500 hover:bg-cyan-600 rounded-r-lg flex-none w-14 h-14" href="{{ url('/') }}">
@@ -34,8 +36,11 @@
                     </svg>
                 </a>
 
-                <div class="grow h-14 ...">
-                    02
+                <div class="grow h-14 ml-6 flex flex-row">
+
+                        <a href="{{ url('/rooms') }}" class="rounded-lg bg-cyan-300 p-2 m-2 hover:bg-slate-200 text-center">Rooms</a>
+
+
                 </div>
 
 
@@ -94,7 +99,7 @@
 
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 h-5/6">
             @yield('content')
         </main>
     </div>

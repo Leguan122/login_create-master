@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -15,16 +16,31 @@ use App\Http\Controllers\Controller;
 |
 */
 
+
 Route::get('/', function () {return view('welcome');});
 Route::get('/login', function () {return view('login');});
 Route::get('/register', function () {return view('register');});
 
+
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'register']);
+
+
 
 Route::middleware('auth')->group(function() {
     Route::get('profile', [UserController::class, 'getProfile']);
     Route::get('logout', [UserController::class, 'logout']);
+});
+
+Route::prefix('/rooms')->group(function () {
+    Route::get('/', function () {return view('rooms');});
+    Route::middleware('auth')->group(function () {
+        Route::get('/ajaxRequest', [AjaxController::class, 'ajaxRequest']);
+        Route::post('/ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
+        Route::get('/general', function () {return view('room_general');});
+    });
+
+
 });
 
 Auth::routes();
