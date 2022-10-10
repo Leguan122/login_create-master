@@ -9,6 +9,7 @@ $("#sendMsg").click(function(e){
     e.preventDefault();
 
     var msg = $('#textarea').val();
+    $('#textarea').val('');
 
 
     $.ajax({
@@ -16,7 +17,7 @@ $("#sendMsg").click(function(e){
         url:'/rooms/ajaxRequest',
         data:{msg},
         success:function(data){
-            alert(data.success);
+            //alert(data.success);
         }
     });
 

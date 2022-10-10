@@ -38,6 +38,7 @@ Route::prefix('/rooms')->group(function () {
         Route::get('/ajaxRequest', [AjaxController::class, 'ajaxRequest']);
         Route::post('/ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
         Route::get('/general', function () {return view('room_general');});
+        Route::get('/general_data', [AjaxController::class, 'requestGeneralData']);
     });
 
 

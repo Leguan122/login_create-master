@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="{{ asset('js/receive_general_room.js') }}" defer></script>
     <h1 class="h1" id="id">General</h1>
 
     <div class="flex w-11/12 m-8 h-full content-center">
@@ -16,8 +17,8 @@
         </div>
         {{--  CHAT--}}
         <div class="flex flex-col justify-between w-8/12 bg-slate-100  rounded-lg object-center mt-6 ml-8 ">
-            <div class="overflow-y-scroll h-5/6">
-                awdawd
+            <div id="messages_block" class="overflow-y-scroll h-5/6 ml-3">
+
             </div>
 
             <div class="m-6">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RoomGeneral;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class AjaxController extends Controller
@@ -31,6 +32,15 @@ class AjaxController extends Controller
             'success'=>'Got Simple Ajax Request.',
             'name'=>'edesfefsef',
             'user'=>$user
+        ]);
+    }
+
+    public function requestGeneralData(Request $request){
+
+        $generalRoom = DB::table('room_generals')->get();
+
+        return response()->json([
+            $generalRoom
         ]);
     }
 }
