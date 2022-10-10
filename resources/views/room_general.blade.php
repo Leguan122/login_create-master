@@ -21,8 +21,8 @@
 
             </div>
 
-            <div class="m-6">
-                <textarea id="textarea" class="w-2/3"> </textarea>
+            <div class="flex m-6">
+                <textarea id="textarea" class="w-11/12" maxlength="255"> </textarea>
                 <button id="sendMsg" class="bg-blue-300 ml-3 p-2 rounded-lg">Send</button>
             </div>
         </div>

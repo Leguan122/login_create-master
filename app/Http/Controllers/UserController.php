@@ -16,6 +16,10 @@ class UserController extends Controller
         return view('profile',['user' => $user]);
     }
 
+    public function publicProfile(Request $request, User $userid){
+        return view('public_profile',['user' => $userid]);
+    }
+
     public function login(Request $request){
         $validated = $request->validate([
             'email' => ['required' , 'email'],

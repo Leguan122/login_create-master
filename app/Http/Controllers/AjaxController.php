@@ -21,10 +21,11 @@ class AjaxController extends Controller
         $input = $request->all();
         $user = auth()->user();
 
-        Log::info($input);
+        //Log::info($input);
 
         $msg = RoomGeneral::create([
             'userid' => $user->id,
+            'name' => $user->name,
             'message' => $request->msg
         ]);
 
@@ -38,9 +39,10 @@ class AjaxController extends Controller
     public function requestGeneralData(Request $request){
 
         $generalRoom = DB::table('room_generals')->get();
+       //$userName = DB::table('users')->where('id', 'John')->first();
 
         return response()->json([
-            $generalRoom
+            $generalRoom,'meno'
         ]);
     }
 }

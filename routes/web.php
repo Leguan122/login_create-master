@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -23,13 +24,18 @@ Route::get('/register', function () {return view('register');});
 
 
 Route::post('/login', [UserController::class, 'login']);
-Route::post('/register', [UserController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 
 
 Route::middleware('auth')->group(function() {
     Route::get('profile', [UserController::class, 'getProfile']);
     Route::get('logout', [UserController::class, 'logout']);
+
+
+    Route::prefix('users')->group(function () {
+        Route::get('/{userid}',[UserController::class, 'publicProfile']);
+    });
 });
 
 Route::prefix('/rooms')->group(function () {

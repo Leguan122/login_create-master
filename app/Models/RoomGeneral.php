@@ -17,5 +17,6 @@ class RoomGeneral extends Model
     protected $fillable = [
         'userid',
         'message',
+        'name'
     ];
 }
