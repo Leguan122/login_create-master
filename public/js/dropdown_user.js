@@ -20,9 +20,11 @@ window.onclick = function(event) {
 
 document.body.onclick = function(anEvent) {
     if (anEvent.target.id.localeCompare("dropdown")) {
-        let dropDown = document.getElementById("myDropdown");
-        if (!dropDown.classList.contains('invisible')){
-            dropDown.classList.toggle('invisible');
+        if($('#myDropdown').length > 0) {
+            let dropDown = document.getElementById("myDropdown");
+            if (!dropDown.classList.contains('invisible')){
+                dropDown.classList.toggle('invisible');
+            }
         }
     }
 

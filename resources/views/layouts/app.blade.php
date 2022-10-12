@@ -30,16 +30,13 @@
     <div id="app" class="h-full">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm flex">
             <div class="flex justify-between w-full">
-                <a class="bg-cyan-500 hover:bg-cyan-600 rounded-r-lg flex-none w-14 h-14" href="{{ url('/') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 items-center mx-5">
-                        <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
-                        <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
-                    </svg>
+                <a class="bg-slate-800 hover:bg-slate-200  rounded-lg w-10 h-10 m-2" href="{{ url('/') }}">
+                    <svg class=" fill-white stroke-white hover:fill-black hover:stroke-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                 </a>
 
                 <div class="grow h-14 ml-6 flex flex-row">
 
-                        <a href="{{ url('/rooms') }}" class="rounded-lg bg-cyan-300 p-2 m-2 hover:bg-slate-200 text-center">Rooms</a>
+                        <a href="{{ url('/rooms') }}" class="transition rounded-lg bg-slate-800 hover:bg-slate-200 p-2 m-2  hover:text-black text-center text-white font-bold duration-700">Rooms</a>
 
 
                 </div>
@@ -48,22 +45,36 @@
 
                 <div class="flex flex-row" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
-                    <ul class="flex flex-row m-1">
+                    <ul class="flex flex-row items-center m-1 bg-slate-800 rounded-lg">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <a class="rounded-lg bg-slate-100 p-2 hover:bg-slate-200 text-center m-1" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="rounded-lg p-2 bg-slate-800 hover:bg-slate-200 hover:text-black text-white font-bold text-center m-1" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endif
 
                             @if (Route::has('register'))
-                                    <a class="rounded-lg bg-slate-100 p-2 hover:bg-slate-200 text-center m-1" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="rounded-lg bg-slate-800 hover:bg-slate-200 hover:text-black text-white p-2 font-bold text-center m-1" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                            <a id="navbarDropdown" class="rounded-l-lg bg-slate-100 p-2 hover:bg-slate-200 text-center " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <div class="rounded-l-lg bg-slate-800 px-2 text-center">
+                                <a href="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="bg-slate-800 px-2 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                </svg>
+
+                            </div>
+
+                            <a id="navbarDropdown" class="bg-slate-800 text-white p-2 text-center " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="rounded-r-lg bg-slate-100 p-2 hover:bg-slate-200 text-center">
+                            <div class="rounded-r-lg bg-slate-800 hover:bg-slate-200 p-2 text-center">
                                 <div>
                                     <button type="button" onclick="myFunction()" class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
@@ -90,6 +101,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
 
                         @endguest
                     </ul>

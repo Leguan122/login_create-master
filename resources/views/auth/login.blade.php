@@ -4,7 +4,7 @@
     <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-md space-y-8 border bg-slate-100 p-8 rounded-lg">
             <div>
-                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+                <svg class="w-12 mx-auto h-12 w-auto fill-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
 
             </div>
