@@ -2,6 +2,24 @@
 
 @section('content')
     <script src="{{ asset('js/receive_general_room.js') }}" defer></script>
+    <script>
+        let id = "{{$id}}"
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        let pusher = new Pusher('d3086f8c53c171b03902', {
+            cluster: 'eu'
+        });
+
+        {{--let id = "{{$id}}";--}}
+        {{--console.log(id);--}}
+        let room = "room-";
+        let channel = pusher.subscribe(room.concat("{{$id}}"));
+        channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data));
+            getData();
+        });
+    </script>
     <h1 class="h1" id="id">General</h1>
 
     <div class="flex w-11/12 m-8 h-full content-center">
@@ -12,7 +30,7 @@
             <button class="bg-blue-100 rounded-lg m-1 h-14">a</button>
             <button class="bg-blue-100 rounded-lg m-1 h-14">a</button>
             <button class="bg-blue-100 rounded-lg m-1 h-14">a</button>
-            <button class="bg-blue-100 rounded-lg m-1 h-14">a</button>
+            <button class="bg-blue-100 rounded-lg m-1 h-14">{{$id}}</button>
 
         </div>
         {{--  CHAT--}}

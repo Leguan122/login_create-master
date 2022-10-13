@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -41,10 +42,8 @@ Route::middleware('auth')->group(function() {
 Route::prefix('/rooms')->group(function () {
     Route::get('/', function () {return view('rooms');});
     Route::middleware('auth')->group(function () {
-        Route::get('/ajaxRequest', [AjaxController::class, 'ajaxRequest']);
-        Route::post('/ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
-        Route::get('/general', function () {return view('room_general');});
-        Route::get('/general_data', [AjaxController::class, 'requestGeneralData']);
+        Route::get('/{id}', [RoomsController::class, 'show_room']);
+        Route::post('/{id}', [AjaxController::class, 'sendMsg']);
     });
 
 

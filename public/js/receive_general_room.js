@@ -1,23 +1,3 @@
-// function getData(){
-//     console.log('data')
-//     $(document).ready(function(){
-//         $.get("general_data", function(data, status){
-//             //alert("Data: " + data.user + "\nStatus: " + status);
-//             $.each(data[0], function(i, item) {
-//                 console.log(item.message);
-//                 if (!$('#'+i).length) {
-//                     jQuery('<div>', {
-//                         id: i,
-//                         class: 'bg-slate-200  rounded-lg mr-8 mt-8',
-//                         title: 'now this div has a title!'
-//                     }).appendTo('#messages_block');
-//                     $("#"+i).append(item.message);
-//                 }
-//             });
-//         });
-//     });
-// }
-
 function getData(){
     console.log('data')
     $(document).ready(function(){
@@ -57,8 +37,8 @@ function getData(){
         });
     });
 }
-getData();
-
-
-
-setInterval(getData, 6000);
+// getData();
+//
+//
+//
+// setInterval(getData, 6000);

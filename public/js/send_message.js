@@ -11,14 +11,18 @@ $("#sendMsg").click(function(e){
     var msg = $('#textarea').val();
     $('#textarea').val('');
 
+    let url = "/rooms/"
+    url = url.concat(id)
+
     $.ajax({
         type:'POST',
-        url:'/rooms/ajaxRequest',
+        url:url,
         data:{msg},
         success:function(data){
-            getData();
+            // getData();
         }
     });
+    console.log(url)
 });
 
 $("#textarea").keypress(function (e) {
