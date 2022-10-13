@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Pusher\PusherException;
 
 
 class AjaxController extends Controller
@@ -18,13 +19,16 @@ class AjaxController extends Controller
     public function sendMsg(Request $request, $id){
 //        require __DIR__ . '/vendor/autoload.php';
 
-//        $pusher = new \Pusher\Pusher(
-//            env('PUSHER_APP_KEY'),
-//            env('PUSHER_APP_SECRET'),
-//            env('PUSHER_APP_ID'),
-//            array('cluster' => env('PUSHER_APP_CLUSTER')));
-//
-//        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
+        try {
+            $pusher = new \Pusher\Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                array('cluster' => env('PUSHER_APP_CLUSTER')));
+        } catch (PusherException $e) {
+        }
+
+        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
 
         return response()->json([
             'id' => $id
