@@ -18,12 +18,16 @@ class AjaxController extends Controller
     public function sendMsg(Request $request, $id){
 //        require __DIR__ . '/vendor/autoload.php';
 
-        $pusher = new \Pusher\Pusher(
-            env('PUSHER_APP_KEY'),
-            env('PUSHER_APP_SECRET'),
-            env('PUSHER_APP_ID'),
-            array('cluster' => env('PUSHER_APP_CLUSTER')));
+//        $pusher = new \Pusher\Pusher(
+//            env('PUSHER_APP_KEY'),
+//            env('PUSHER_APP_SECRET'),
+//            env('PUSHER_APP_ID'),
+//            array('cluster' => env('PUSHER_APP_CLUSTER')));
+//
+//        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
 
-        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
+        return response()->json([
+            'id' => $id
+        ]);
     }
 }
