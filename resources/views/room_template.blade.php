@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <script src="{{ asset('js/receive_general_room.js') }}" defer></script>
+    <script src="{{ asset('js/received_room_msg.js') }}" defer></script>
     <script>
         let id = "{{$id}}"
         // Enable pusher logging - don't include this in production
@@ -14,8 +14,9 @@
         let room = "room-";
         let channel = pusher.subscribe(room.concat("{{$id}}"));
         channel.bind('my-event', function(data) {
-            alert(JSON.stringify(data));
-            getData();
+            //alert(JSON.stringify(data));
+            //getData();
+            msgArrived(data);
         });
     </script>
     <h1 class="h1" id="id">General</h1>

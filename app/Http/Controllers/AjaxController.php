@@ -29,7 +29,7 @@ class AjaxController extends Controller
 
             $url = 'room-';
             $url.= $id;
-            $pusher->trigger($url, 'my-event', array('user' => $user->name,'message' => $request->msg, 'time' => Carbon::now()));
+            $pusher->trigger($url, 'my-event', array('user' => $user->name, 'userid' =>$user->id,'message' => $request->msg, 'time' => Carbon::now()));
         } catch (PusherException $e) {
         }
 
