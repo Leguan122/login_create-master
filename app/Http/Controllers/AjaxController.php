@@ -28,10 +28,13 @@ class AjaxController extends Controller
         } catch (PusherException $e) {
         }
 
-        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
+        $url = 'room-';
+        $url.= $id;
+        $pusher->trigger($url, 'my-event', array('message' => $request->msg));
 
         return response()->json([
-            'id' => $id
+            'id' => $id,
+            'url' => $url
         ]);
     }
 }
