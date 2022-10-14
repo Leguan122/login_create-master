@@ -5,14 +5,12 @@
     <script>
         let id = "{{$id}}"
         // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
+        //Pusher.logToConsole = true;
 
         let pusher = new Pusher('d3086f8c53c171b03902', {
             cluster: 'eu'
         });
 
-        {{--let id = "{{$id}}";--}}
-        {{--console.log(id);--}}
         let room = "room-";
         let channel = pusher.subscribe(room.concat("{{$id}}"));
         channel.bind('my-event', function(data) {
