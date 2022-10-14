@@ -5,35 +5,41 @@ function msgArrived(data) {
         console.log(data.user);
         console.log(data);
 
+        let id = data.time.toString();
+        id = id.replace(':','-');
+        id = id.replace(':','-');
+        id = id.replace('.','-');
+        console.log(typeof id);
+
         jQuery('<div>', {
-            id: data.time,
+            id: id,
             class: 'bg-slate-200  rounded-lg mr-8 mt-8 p-2',
-            title: data.time
+            title: id
         }).appendTo('#messages_block');
         jQuery('<div>', {
-            id: 'msg-header'+data.time,
+            id: 'msg-header'+id,
             class: 'flex justify-between border-b-4',
-        }).appendTo('#'+ data.time);
-        console.log('#'+ data.time)
+        }).appendTo('#'+id);
+        console.log('#'+ id)
 
         jQuery('<a>', {
-            id: 'author'+data.userid,
+            id: 'author'+id,
             class: '',
-        }).appendTo('#msg-header'+data.time);
-        $("#author"+data.userid).attr("href","/users/"+data.userid);
+            href: "/users/"+data.userid
+        }).appendTo('#msg-header'+id);
 
         jQuery('<div>', {
-            id: 'timestamp'+data.time,
+            id: 'timestamp'+id,
             class: '',
-        }).appendTo('#msg-header'+data.time);
+        }).appendTo('#msg-header'+id);
 
         jQuery('<div>', {
-            id: 'msg-body'+data.time,
+            id: 'msg-body'+id,
             class: '',
-        }).appendTo('#'+data.time);
+        }).appendTo('#'+id);
 
-        $("#msg-body"+data.time).append(data.message);
-        $("#author"+data.time).append(data.name);
-        $("#timestamp"+data.time).append(data.time);
+        $("#msg-body"+id).append(data.message);
+        $("#author"+id).append(data.name);
+        $("#timestamp"+id).append(data.time);
     });
 }
