@@ -39,7 +39,7 @@ function msgArrived(data) {
         }).appendTo('#'+id);
 
         $("#msg-body"+id).append(data.message);
-        $("#author"+id).append(data.name);
+        $("#author"+id).append(data.user);
         $("#timestamp"+id).append(data.time);
     });
 }

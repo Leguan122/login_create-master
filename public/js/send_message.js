@@ -4,15 +4,12 @@ $.ajaxSetup({
     }
 });
 
-$("#sendMsg").click(function(e){
-
-    e.preventDefault();
-
+function sendMsgFunc(){
     var msg = $('#textarea').val();
     $('#textarea').val('');
 
     let url = "/rooms/"
-    //url = url.concat(id)
+    url = url.concat(id)
 
     $.ajax({
         type:'POST',
@@ -23,25 +20,19 @@ $("#sendMsg").click(function(e){
         }
     });
     console.log(url)
+}
+
+$("#sendMsg").click(function(e){
+
+    e.preventDefault();
+
+   sendMsgFunc();
 });
 
 $("#textarea").keypress(function (e) {
     if(e.which === 13 && !e.shiftKey) {
         e.preventDefault();
 
-        var msg = $('#textarea').val();
-        $('#textarea').val('');
-
-        let url = "/rooms/"
-        url = url.concat(id)
-
-        $.ajax({
-            type:'POST',
-            url:url,
-            data:{msg},
-            success:function(data){
-                // getData();
-            }
-        });
+        sendMsgFunc();
     }
 });
