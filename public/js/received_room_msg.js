@@ -43,7 +43,11 @@ function msgArrived(data) {
         $("#timestamp"+id).append(data.time);
 
 
-        $('#messages_block').scrollTop($('#messages_block').height());
+        // $('#messages_block').scrollTop($('#messages_block').height());
+        $('#messages_block').animate({
+            scrollTop: $(
+                '#messages_block').get(0).scrollHeight
+        }, 2000);
 
     });
 }
