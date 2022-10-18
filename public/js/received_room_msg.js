@@ -41,5 +41,9 @@ function msgArrived(data) {
         $("#msg-body"+id).append(data.message);
         $("#author"+id).append(data.user);
         $("#timestamp"+id).append(data.time);
+
+
+        $('#messages_block').scrollTop($('#messages_block').height());
+
     });
 }
