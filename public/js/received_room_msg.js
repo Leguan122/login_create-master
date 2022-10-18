@@ -47,7 +47,7 @@ function msgArrived(data) {
         $('#messages_block').animate({
             scrollTop: $(
                 '#messages_block').get(0).scrollHeight
-        }, 2000);
+        }, 500);
 
     });
 }

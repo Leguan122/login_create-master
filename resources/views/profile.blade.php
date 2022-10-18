@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
 
-<h1>Profile</h1>
+@section('content')
+    <div class="flex  items-center justify-center ">
+        <div class="flex flex-col w-2/3 bg-slate-300">
+            {{--        HEADER--}}
+            <div class="flex flex-row m-2">
+                <div class="w-3/12 aspect-square">
+                    <img src="{{URL::asset('public/imgs/profile-m.png')}}">
+                </div>
+                <div class="h-auto w-8/12">
+                    <textarea class="h-full w-full"></textarea>
+                </div>
 
-<p>{{ $user->email }}</p>
+            </div>
 
-<a href="/logout">Log out</a>
+            {{--        BODY--}}
+            <div>
+                <form>
+                    <input type="text" value="name">
+                </form>
+            </div>
+        </div>
+    </div>
 
-</body>
-</html>
-
+@endsection
