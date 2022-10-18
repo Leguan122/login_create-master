@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RoomGeneral;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +18,7 @@ class AjaxController extends Controller
 {
 
     public function sendMsg(Request $request, $id){
-//        require __DIR__ . '/vendor/autoload.php';
+        $user = auth()->user();
 
         try {
             $pusher = new \Pusher\Pusher(
@@ -25,13 +26,19 @@ class AjaxController extends Controller
                 env('PUSHER_APP_SECRET'),
                 env('PUSHER_APP_ID'),
                 array('cluster' => env('PUSHER_APP_CLUSTER')));
+
+            $url = 'room-';
+            $url.= $id;
+            $pusher->trigger($url, 'my-event', array('user' => $user->name, 'userid' =>$user->id,'message' => $request->msg, 'time' => Carbon::now()));
         } catch (PusherException $e) {
         }
 
-        $pusher->trigger('my-channel', 'my-event', array('message' => 'hello world'));
+
 
         return response()->json([
-            'id' => $id
+            'id' => $id,
+            'url' => $url,
+            'name' => $user->name
         ]);
     }
 }
