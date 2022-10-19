@@ -27,7 +27,7 @@ class Controller extends BaseController
         $subject = 'the subject';
         $message = 'hello';
         $headers = 'From: test@leguan.h10s.eu' . "\r\n" .
-                    'Return-Path: test@leguan.h10s.eu' .
+                    'Reply-To: test@leguan.h10s.eu' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
 
 
