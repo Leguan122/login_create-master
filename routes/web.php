@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function() {
     Route::get('profile', [UserController::class, 'getProfile']);
     Route::get('logout', [UserController::class, 'logout']);
 
+    Route::get('email', [\App\Http\Controllers\Controller::class, 'getMail']);
+    Route::post('email', [\App\Http\Controllers\Controller::class, 'sendMail']);
 
     Route::prefix('users')->group(function () {
         Route::get('/{userid}',[UserController::class, 'publicProfile']);

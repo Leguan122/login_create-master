@@ -18,6 +18,7 @@ class AjaxController extends Controller
 {
 
     public function sendMsg(Request $request, $id){
+
         $user = auth()->user();
 
         try {
