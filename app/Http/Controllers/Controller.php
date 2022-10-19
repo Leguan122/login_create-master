@@ -23,7 +23,7 @@ class Controller extends BaseController
     public function sendMail(Request $request){
 
         Log::info('sendMail');
-        $to      = 'leguan25@gmail.com';
+        $to      = 'kiss.adam.bs@gmail.com';
         $subject = 'the subject';
         $message = 'hello';
         $headers = 'From: test@leguan.h10s.eu' . "\r\n" .
