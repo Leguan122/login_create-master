@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PusherController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,7 @@ Route::get('/register', function () {return view('register');});
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
 
-
+Route::post('/webhook', [PusherController::class, 'webhook']);
 
 Route::middleware('auth')->group(function() {
     Route::get('profile', [UserController::class, 'getProfile']);

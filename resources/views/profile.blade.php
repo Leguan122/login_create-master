@@ -6,18 +6,38 @@
             {{--        HEADER--}}
             <div class="flex flex-row m-2">
                 <div class="w-3/12 aspect-square">
-                    <img src="{{URL::asset('public/imgs/profile-m.png')}}">
+                    <img src="{{ asset('imgs/profile-m.png') }}">
                 </div>
                 <div class="h-auto w-8/12">
-                    <textarea class="h-full w-full"></textarea>
+                    <textarea class="h-full w-full ml-2"></textarea>
                 </div>
 
             </div>
+            <hr>
 
             {{--        BODY--}}
-            <div>
+            <div class="m-2">
                 <form>
-                    <input type="text" value="name">
+                    <div class="flex flex-row">
+
+                    </div>
+                    <label for="fname">Krstné meno:</label>
+                    <input type="text" id="fname" name="fname">
+
+                    <label for="lname">Priezvisko:</label>
+                    <input type="text" id="lname" name="lname"><br><br>
+
+
+
+                    <label for="sex">Pohlavie:</label><br>
+                    <input list="sex">
+                    <datalist id="sex">
+                        <option value="Muž">
+                        <option value="Žena">
+                    </datalist>
+
+                    <input type="submit" value="Submit">
+
                 </form>
             </div>
         </div>
