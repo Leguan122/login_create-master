@@ -23,13 +23,14 @@ class Controller extends BaseController
     public function sendMail(Request $request){
 
         Log::info('sendMail');
-        $to      = 'leguan25@google.com';
+        $to      = 'leguan25@gmail.com';
         $subject = 'the subject';
         $message = 'hello';
         $headers = 'From: test@leguan.h10s.eu' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+                    'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $headers);
+        $success =  mail($to, $subject, $message, $headers);
+
 
 
         return view('email');
