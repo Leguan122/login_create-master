@@ -32,7 +32,7 @@ class Controller extends BaseController
         mail($to, $subject, $message, $headers);
 
 
-        return view('email.blade.php');
+        return view('email');
     }
 
 }
