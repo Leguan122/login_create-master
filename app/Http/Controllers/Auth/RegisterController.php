@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -69,5 +71,27 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'unique:users'
+        ],[
+            'email.unique' => 'Email už existuje'
+        ]);
+
+        return response()->json(['message' => 'Overovací email bol odoslaný'], 201);
+
+//        $newUser = User::create([
+//            'name' => $user->name,
+//            'email' => $user->email,
+//            'google_id'=> $user->id,
+//            'password' => encrypt('123456dummy')
+//        ]);
+//
+//        Auth::login($newUser);
+//
+//        return redirect('/home');
     }
 }
